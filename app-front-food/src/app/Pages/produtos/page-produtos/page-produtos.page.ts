@@ -20,7 +20,6 @@ export class PageProdutosPage implements OnInit {
     id:0,
     nome:"",
     descricao:"",
-    codigo:"",
     bordaRecheada:"",
     valor:""
   }
