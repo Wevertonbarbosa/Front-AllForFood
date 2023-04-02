@@ -5,5 +5,5 @@ export interface Clientes {
   telefone:string,
   logradouro:string,
   bairro:string,
-  numero:number
+  numero:string
 }
