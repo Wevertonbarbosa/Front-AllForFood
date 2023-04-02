@@ -6,35 +6,39 @@ import { Clientes } from 'src/app/Service/cliente';
 import { HttpClientModule } from '@angular/common/http';
 import { RequestService } from 'src/app/Service/request.service';
 
+
 @Component({
   selector: 'app-cliente',
   templateUrl: './cliente.page.html',
   styleUrls: ['./cliente.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule,HttpClientModule]
+  imports: [IonicModule, CommonModule, FormsModule, HttpClientModule],
+  providers: [RequestService]
 })
 export class ClientePage implements OnInit {
 
   cliente: Clientes = {
-    id:0,
-    nome:'',
-    email:'',
-    telefone:'',
-    logradouro:'',
-    bairro:'',
-    numero:''
+    id: 0,
+    nome: '',
+    email: '',
+    telefone: '',
+    logradouro: '',
+    bairro: '',
+    numero: ''
   }
   constructor(private service: RequestService) { }
 
   ngOnInit() {
   }
 
-  cadastrar(form:NgForm){
-    if(form.valid){
+  cadastrar(form: NgForm) {
+    if (form.valid) {
       console.log("hello");
-      
+      this.service.postarDados(this.cliente).subscribe((dados) => {
+        console.log(dados)
+      })
+
     }
   }
-
 
 }
