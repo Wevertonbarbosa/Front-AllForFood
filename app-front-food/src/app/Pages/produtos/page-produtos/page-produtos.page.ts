@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { Produtos } from 'src/app/Service/produto';
 import { RequestService } from 'src/app/Service/request.service';
 import { HttpClientModule } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,23 +17,24 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [RequestService]
 })
 export class PageProdutosPage implements OnInit {
-  produto:Produtos = {
-    id:0,
-    nome:"",
-    descricao:"",
-    bordaRecheada:"",
-    valor:""
+  produto: Produtos = {
+    id: 0,
+    nome: "",
+    descricao: "",
+    bordaRecheada: "",
+    valor: ""
   }
-  constructor(private service: RequestService) { }
+  constructor(private service: RequestService, private router: Router, private cd: ChangeDetectorRef) { }
 
   ngOnInit() {
   }
 
-  concluir(form: NgForm){
+  concluir(form: NgForm) {
     if (form.valid) {
-      console.log("hello");
       this.service.postarDadosProduto(this.produto).subscribe((dados) => {
-        console.log(dados)
+      this.router.navigate(["/page-pedido"])
+        this.cd.detectChanges();
+      
       })
 
     }

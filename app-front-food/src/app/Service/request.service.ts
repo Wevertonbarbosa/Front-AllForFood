@@ -17,8 +17,15 @@ export class RequestService {
   postarDados(dados: Clientes): Observable<Clientes> {
     return this.http.post<Clientes>(this.APIcliente, dados);
   }
-  postarDadosProduto(dados: Produtos): Observable<Produtos> {
+  postarDadosProduto(dados: Produtos): Observable<Produtos>{   
     return this.http.post<Produtos>(this.APIproduto, dados);
+  }
+
+  mostrarDados(){
+    return this.http.get<Clientes[]>(this.APIcliente)
+  }
+  mostrarDadosProduto(){
+    return this.http.get<Produtos[]>(this.APIproduto)
   }
 
 }

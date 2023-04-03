@@ -1,13 +1,14 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>pagePedido</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">pagePedido</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content>
+<div *ngFor="let dado of clienteDado">
+  <h4>Nome: {{dado.nome}} </h4>
+  <h4>Email: {{dado.email}}</h4>
+  <h4>Telefone: {{dado.telefone}}</h4>
+  <h4>Logradouro: {{dado.logradouro}}</h4>
+  <h4>Bairro: {{dado.bairro}}</h4>
+  <h4>Número: {{dado.numero}}</h4>
+</div>
+<div *ngFor="let produto of produtoDado">
+  <h4>Pizza: {{produto.nome}}</h4>
+  <h4>Descrição: {{produto.descricao}}</h4>
+  <h4>Borda Recheada: {{produto.bordaRecheada}} </h4>
+  <h4>Valor: {{produto.valor}}</h4>
+</div>
