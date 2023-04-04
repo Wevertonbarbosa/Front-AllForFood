@@ -3,5 +3,6 @@ export interface Produtos {
   nome:string,
   descricao:string,
   bordaRecheada:string,
-  valor:string
+  codigo?:string,
+  valor?:string
 }

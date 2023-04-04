@@ -20,8 +20,8 @@ export class PageLojaPage implements OnInit {
 
   ionViewDidEnter(){
     setTimeout(()=>{
-      this.router.navigateByUrl("home")
-    },2500)
+      this.router.navigateByUrl("cliente")
+    },3900)
   }
 
 }

@@ -1,14 +1,19 @@
-<div *ngFor="let dado of clienteDado">
-  <h4>Nome: {{dado.nome}} </h4>
-  <h4>Email: {{dado.email}}</h4>
-  <h4>Telefone: {{dado.telefone}}</h4>
-  <h4>Logradouro: {{dado.logradouro}}</h4>
-  <h4>Bairro: {{dado.bairro}}</h4>
-  <h4>Número: {{dado.numero}}</h4>
-</div>
-<div *ngFor="let produto of produtoDado">
-  <h4>Pizza: {{produto.nome}}</h4>
-  <h4>Descrição: {{produto.descricao}}</h4>
-  <h4>Borda Recheada: {{produto.bordaRecheada}} </h4>
-  <h4>Valor: {{produto.valor}}</h4>
-</div>
+<ion-card *ngFor="let dado of clienteDado">
+  <ion-card-title>{{dado.nome}}</ion-card-title>
+  <ion-card-header>
+    <ion-card-subtitle>Email: {{dado.email}}</ion-card-subtitle>
+    <ion-card-subtitle>Telefone: {{dado.telefone}}</ion-card-subtitle>
+    <ion-card-subtitle>Logradouro: {{dado.logradouro}}</ion-card-subtitle>
+    <ion-card-subtitle>Bairro: {{dado.bairro}}</ion-card-subtitle>
+    <ion-card-subtitle>Número: {{dado.numero}}</ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content *ngFor="let produto of produtoDado">
+
+    <h4>Pizza: {{produto.nome}}</h4>
+    <h4>Descrição: {{produto.descricao}}</h4>
+    <h4>Borda Recheada: {{produto.bordaRecheada}} </h4>
+    <h4>Código do Produto: {{produto.codigo}} </h4>
+    <h4>Valor: R$:{{produto.valor}}</h4>
+  </ion-card-content>
+</ion-card>

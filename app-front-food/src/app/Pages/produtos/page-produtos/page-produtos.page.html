@@ -3,79 +3,72 @@
     <h2>Monte sua Pizza</h2>
   </header>
 
-  <!-- Se for false ainda não tem cadastro de dados então é false aparece essa msg -->
-  <ion-card *ngIf="!isCadastrou">
-    <img class="img-pizza-gif" alt="Logo" src="../../../../assets/pizza-animada.gif" />
-    <ion-card-header>
-      <ion-card-title>All for Food</ion-card-title>
-      <ion-card-subtitle>Monte a sua pizza</ion-card-subtitle>
-    </ion-card-header>
-
-    <ion-card-content>
-      Antes de montar sua pizza cadastre seus dados e depois é só curtir.
-    </ion-card-content>
-    <ion-button (click)="goCliente()">
-      <p>Cadastrar</p>
-    </ion-button>
-  </ion-card>
-
-
   <!-- Se for True aparece o Formulario -->
-  <div *ngIf="isCadastrou">
+  <div>
     <form #f="ngForm" (ngSubmit)="concluir(f)">
 
-      <div>
-        <h4>Preencha com seus dados e receba sua pizza!</h4>
-      </div>
       <ion-grid class=" gridCliente">
-        <ion-row>
-          <label for="nome">Nome</label>
-          <ion-col *ngIf="(f.controls['nome']?.invalid && f.controls['nome']?.touched)
+        <ion-row class="row-label">
+          <label for="nome">Sabor</label>
+          <ion-col class="col-error" class="col-error"*ngIf="(f.controls['nome']?.invalid && f.controls['nome']?.touched)
           || f.controls['nome']?.dirty" size="9" style="text-align: end;">
 
             <span class="erro_txt" *ngIf="f.controls['nome']?.errors?.['required']">
-              Campo nome precisa ser preenchido!
+              precisa ser preenchido!
             </span>
 
             <span class="erro_txt" *ngIf="f.controls['nome']?.errors?.['minlength']">
-              Nome precisa no mínimo de 2 caracteres!
+              mínimo de 2 caracteres!
             </span>
 
-            <span class="erro_txt"
-              *ngIf="f.controls['nome']?.errors?.['pattern'] && !f.controls['nome']?.errors?.['minlength']">
-              Nome Inválido: "Ex: Nome Sobrenome"
-            </span>
           </ion-col>
         </ion-row>
 
         <ion-row>
-          <input pattern="^[A-Za-z]+(?:\s+[A-Za-z]+)+$" [(ngModel)]='produto.nome' name="nome" minlength="2" required
+          <input  [(ngModel)]='produto.nome' name="nome" minlength="2" required
             type="text" name="nome" placeholder="Nome completo:">
         </ion-row>
 
-        <ion-row>
-          <label for="descricao">Descricao</label>
+        <ion-row class="row-label">
+          <label for="descricao">Descrição</label>
+          <ion-col class="col-error" class="col-error"*ngIf="(f.controls['descricao']?.invalid && f.controls['descricao']?.touched)
+          || f.controls['nome']?.dirty" size="9" style="text-align: end;">
+
+            <span class="erro_txt" *ngIf="f.controls['descricao']?.errors?.['required']">
+              precisa ser preenchido!
+            </span>
+
+            <span class="erro_txt" *ngIf="f.controls['descricao']?.errors?.['minlength']">
+              mínimo de 2 caracteres!
+            </span>
+            
+          </ion-col>
         </ion-row>
         <ion-row>
           <input [(ngModel)]='produto.descricao' type="text" name="descricao" required placeholder="descrição:">
         </ion-row>
 
-        <ion-row>
-          <label for="bordaRecheada">BordaRecheada</label>
+        <ion-row class="row-label">
+          <label for="bordaRecheada">Borda</label>
+          <ion-col class="col-error" class="col-error"*ngIf="(f.controls['bordaRecheada']?.invalid && f.controls['bordaRecheada']?.touched)
+          || f.controls['nome']?.dirty" size="9" style="text-align: end;">
+
+            <span class="erro_txt" *ngIf="f.controls['bordaRecheada']?.errors?.['required']">
+              precisa ser preenchido!
+            </span>
+
+            <span class="erro_txt" *ngIf="f.controls['bordaRecheada']?.errors?.['minlength']">
+              mínimo de 2 caracteres!
+            </span>
+            
+          </ion-col>
         </ion-row>
         <ion-row>
           <input [(ngModel)]='produto.bordaRecheada' type="text" required name="bordaRecheada"
             placeholder="Borda Recheada: ">
         </ion-row>
-
-        <ion-row>
-          <label for="valor">Valor</label>
-        </ion-row>
-        <ion-row>
-          <input [(ngModel)]='produto.valor' type="text" name="valor" required placeholder="Valor:">
-        </ion-row>
-
-        <ion-row>
+        
+        <ion-row class="row-btn">
           <button>Cadastrar</button>
         </ion-row>
 

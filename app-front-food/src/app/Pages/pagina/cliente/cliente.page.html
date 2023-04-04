@@ -5,14 +5,11 @@
 
   <div>
     <form #f="ngForm" (ngSubmit)="cadastrar(f)">
-
-      <div>
-        <h4>Preencha com seus dados e receba sua pizza!</h4>
-      </div>
+      
       <ion-grid class=" gridCliente">
-        <ion-row>
+        <ion-row class="row-label">
           <label for="nome">Nome</label>
-          <ion-col *ngIf="(f.controls['nome']?.invalid && f.controls['nome']?.touched)
+          <ion-col class="col-error" *ngIf="(f.controls['nome']?.invalid && f.controls['nome']?.touched)
           || f.controls['nome']?.dirty" size="9" style="text-align: end;">
 
             <span class="erro_txt" *ngIf="f.controls['nome']?.errors?.['required']">
@@ -20,12 +17,12 @@
             </span>
 
             <span class="erro_txt" *ngIf="f.controls['nome']?.errors?.['minlength']">
-              Nome precisa no mínimo de 2 caracteres!
+              mínimo de 2 caracteres!
             </span>
 
             <span class="erro_txt"
               *ngIf="f.controls['nome']?.errors?.['pattern'] && !f.controls['nome']?.errors?.['minlength']">
-              Nome Inválido: "Ex: Nome Sobrenome"
+              "Ex: Nome Sobrenome"
             </span>
           </ion-col>
         </ion-row>
@@ -35,16 +32,16 @@
             type="text" name="nome" placeholder="Nome completo:">
         </ion-row>
 
-        <ion-row>
+        <ion-row class="row-label">
           <label for="email">Email</label>
-          <ion-col *ngIf="(f.controls['email']?.invalid && f.controls['email']?.touched)
+          <ion-col class="col-error" *ngIf="(f.controls['email']?.invalid && f.controls['email']?.touched)
         || f.controls['email']?.dirty" size="9" style="text-align: end;">
 
             <span class="erro_txt" *ngIf="f.controls['email']?.errors?.['required']">
               Campo Email precisa ser preenchido!
             </span>
             <span class="erro_txt" *ngIf="f.controls['email']?.errors?.['pattern']">
-              Email inválido: "Ex: exemplo@dominio.com"
+              "Ex: exemplo@dominio.com"
             </span>
           </ion-col>
         </ion-row>
@@ -54,16 +51,16 @@
             [(ngModel)]='cliente.email' type="text" name="email" required placeholder="Email:">
         </ion-row>
 
-        <ion-row>
+        <ion-row class="row-label">
           <label for="telefone">Telefone</label>
-          <ion-col size="9" style="text-align: end;" *ngIf="(f.controls['telefone']?.invalid && f.controls['telefone']?.touched)
+          <ion-col class="col-error" size="9" style="text-align: end;" *ngIf="(f.controls['telefone']?.invalid && f.controls['telefone']?.touched)
           || f.controls['telefone']?.dirty">
 
             <span class="erro_txt" *ngIf="f.controls['telefone']?.errors?.['required']">
-              Campo Telefone precisa ser preenchido!
+              Telefone precisa ser preenchido!
             </span>
             <span class="erro_txt" *ngIf="f.controls['telefone']?.errors?.['minlength']">
-              Telefone inválido: "Ex: (99) 99999-9999"
+              "Ex: (99) 99999-9999"
             </span>
           </ion-col>
         </ion-row>
@@ -71,7 +68,7 @@
           <input [(ngModel)]='cliente.telefone' type="text" required name="telefone" placeholder="Telefone:">
         </ion-row>
 
-        <ion-row>
+        <ion-row class="row-label">
           <label for="logradouro">Rua</label>
         </ion-row>
         <ion-row>
@@ -79,21 +76,21 @@
         </ion-row>
 
 
-        <ion-row>
+        <ion-row class="row-label">
           <label for="bairro">Bairro</label>
         </ion-row>
         <ion-row>
           <input [(ngModel)]='cliente.bairro' type="text" name="bairro" required placeholder="Bairro:">
         </ion-row>
 
-        <ion-row>
+        <ion-row class="row-label">
           <label for="numero">Número</label>
         </ion-row>
         <ion-row>
           <input [(ngModel)]='cliente.numero' type="text" required name="numero" placeholder="Número:">
         </ion-row>
 
-        <ion-row>
+        <ion-row class="row-btn">
           <button> Cadastrar</button>
         </ion-row>
 

@@ -27,12 +27,13 @@ export class PagePedidoPage implements OnInit {
     this.service.mostrarDados().subscribe((cliente) => {
       this.clienteDado = cliente
       this.cd.detectChanges();
-      
+      window.location.reload; 
     })
     
     this.service.mostrarDadosProduto().subscribe((produto) => {
       this.produtoDado = produto
       this.cd.detectChanges();
+      window.location.reload;
     })
   }
 

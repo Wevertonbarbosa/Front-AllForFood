@@ -1,3 +1,4 @@
+import { PageProdutosPage } from './../../produtos/page-produtos/page-produtos.page';
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
@@ -30,20 +31,16 @@ export class ClientePage implements OnInit {
     private service: RequestService,
     private router: Router,
     private cd: ChangeDetectorRef,
-
   ) { }
 
   ngOnInit() { }
 
   cadastrar(form: NgForm) {
     if (form.valid) {
-      this.router.navigate(['/page-produtos']);
+      this.service.postarDados(this.cliente).subscribe(() => {
+        this.router.navigate(['/page-produtos'])
+        this.cd.detectChanges();
+      });
     }
-
-    // if (form.valid) {
-    //   this.service.postarDados(this.cliente).subscribe(() => {
-    //   this.cd.detectChanges();
-    //   });
-    // }
   }
 }

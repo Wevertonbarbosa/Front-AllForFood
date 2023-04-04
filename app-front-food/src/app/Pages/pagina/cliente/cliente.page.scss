@@ -1,4 +1,4 @@
-header{
+header {
   background-color: #8b0a0a;
   height: 125px;
   display: flex;
@@ -6,21 +6,65 @@ header{
   justify-content: center;
 }
 
-header h2{
+header h2 {
   color: white;
   text-align: center;
   font-weight: 600;
 }
 form div {
   background-color: #2e2c2a;
-  color:white;
+  color: white;
   font-weight: 600;
 }
 
-form h4{
-  margin:0;
+form h4 {
+  margin: 0;
 }
 
 .gridCliente {
-  padding: 3em; 
+  padding: 1em;
+}
+
+input {
+  width: 90%;
+  height: 30px;
+  border-radius: 8px;
+  border-color: #00000045;
+  padding: 1em;
+
+}
+
+.row-label {
+  padding: 0.3em 0.8em;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.erro_txt {
+  font-size: 13px;
+}
+
+.col-error{
+  padding: 0;
+  left: 20px;
+}
+
+.ng-touched.ng-invalid:not(form) {
+  border-color: red;
+  color: red;
+}
+
+.row-btn{
+  padding: 2em;
+}
+
+.row-btn button {
+  width: 88%;
+  height: 40px;
+  font-size: 16px;
+  border-radius: 8px;
+    font-weight: 700;
+  color: white;
+  background-color: #3880ff;
 }

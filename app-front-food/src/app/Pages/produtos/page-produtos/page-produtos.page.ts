@@ -16,20 +16,17 @@ import { Router } from '@angular/router';
   providers: [RequestService],
 })
 export class PageProdutosPage implements OnInit {
-  isCadastrou: boolean = false
  
   produto: Produtos = {
     id: 0,
     nome: '',
     descricao: '',
-    bordaRecheada: '',
-    valor: '',
+    bordaRecheada: ''
   };
   constructor(
     private service: RequestService,
     private router: Router,
-    private cd: ChangeDetectorRef,
-    
+    private cd: ChangeDetectorRef,  
   ) { }
 
   ngOnInit() {
@@ -44,7 +41,4 @@ export class PageProdutosPage implements OnInit {
     }
   }
 
-  goCliente() {
-    this.router.navigate(['/cliente']);
-  }
 }

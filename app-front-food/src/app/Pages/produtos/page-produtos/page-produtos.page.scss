@@ -11,42 +11,60 @@ header h2 {
   text-align: center;
   font-weight: 600;
 }
-form div {
-  background-color: #2e2c2a;
-  color: white;
-  font-weight: 600;
-}
 
 form h4 {
   margin: 0;
 }
 
 .gridCliente {
-  padding: 3em;
-}
-ion-card{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 400px;
-}
-
-ion-card-header{
-  align-items: center;
-  padding: .7em;
-}
-
-.img-pizza-gif {
-  height: 130px;
-}
-
-ion-card-content{
-  padding-bottom: 1.4em;
+  padding: 1em;
 }
 
 ion-button{
   width: 50%;
   color: white;
   font-weight: 700;
+}
+
+.row-label {
+  padding: 0.3em 0.8em;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.erro_txt {
+  font-size: 13px;
+}
+
+.col-error{
+  padding: 0;
+  left: 20px;
+}
+
+.ng-touched.ng-invalid:not(form) {
+  border-color: red;
+  color: red;
+}
+
+input {
+  width: 90%;
+  height: 30px;
+  border-radius: 8px;
+  border-color: #00000045;
+  padding: 1em;
+}
+
+.row-btn{
+  padding: 2em;
+}
+
+.row-btn button {
+  width: 88%;
+  height: 40px;
+  font-size: 16px;
+  border-radius: 8px;
+    font-weight: 700;
+  color: white;
+  background-color: #3880ff;
 }
