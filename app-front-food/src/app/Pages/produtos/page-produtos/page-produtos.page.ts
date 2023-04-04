@@ -16,7 +16,8 @@ import { Router } from '@angular/router';
   providers: [RequestService],
 })
 export class PageProdutosPage implements OnInit {
-
+  isCadastrou: boolean = false
+ 
   produto: Produtos = {
     id: 0,
     nome: '',
@@ -28,12 +29,11 @@ export class PageProdutosPage implements OnInit {
     private service: RequestService,
     private router: Router,
     private cd: ChangeDetectorRef,
-   
-  ) {}
-  
-  ngOnInit() {     
-  }
     
+  ) { }
+
+  ngOnInit() {
+  }
 
   concluir(form: NgForm) {
     if (form.valid) {

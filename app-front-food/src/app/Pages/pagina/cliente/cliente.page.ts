@@ -16,6 +16,7 @@ import { Router } from '@angular/router';
   providers: [RequestService],
 })
 export class ClientePage implements OnInit {
+
   cliente: Clientes = {
     id: 0,
     nome: '',
@@ -28,17 +29,21 @@ export class ClientePage implements OnInit {
   constructor(
     private service: RequestService,
     private router: Router,
-    private cd: ChangeDetectorRef
-  ) {}
+    private cd: ChangeDetectorRef,
 
-  ngOnInit() {}
+  ) { }
+
+  ngOnInit() { }
 
   cadastrar(form: NgForm) {
     if (form.valid) {
-      this.service.postarDados(this.cliente).subscribe(() => {
-        this.router.navigate(['/page-produtos']);
-        this.cd.detectChanges();
-      });
+      this.router.navigate(['/page-produtos']);
     }
+
+    // if (form.valid) {
+    //   this.service.postarDados(this.cliente).subscribe(() => {
+    //   this.cd.detectChanges();
+    //   });
+    // }
   }
 }
