@@ -7,17 +7,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { RequestService } from 'src/app/Service/request.service';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-cliente',
   templateUrl: './cliente.page.html',
   styleUrls: ['./cliente.page.scss'],
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule, HttpClientModule],
-  providers: [RequestService]
+  providers: [RequestService],
 })
 export class ClientePage implements OnInit {
-
   cliente: Clientes = {
     id: 0,
     nome: '',
@@ -25,21 +23,22 @@ export class ClientePage implements OnInit {
     telefone: '',
     logradouro: '',
     bairro: '',
-    numero: ''
-  }
-  constructor(private service: RequestService, private router: Router, private cd: ChangeDetectorRef) { }
+    numero: '',
+  };
+  constructor(
+    private service: RequestService,
+    private router: Router,
+    private cd: ChangeDetectorRef
+  ) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   cadastrar(form: NgForm) {
     if (form.valid) {
       this.service.postarDados(this.cliente).subscribe(() => {
-        this.router.navigate(["/page-produtos"])
+        this.router.navigate(['/page-produtos']);
         this.cd.detectChanges();
-      })
-
+      });
     }
   }
-
 }

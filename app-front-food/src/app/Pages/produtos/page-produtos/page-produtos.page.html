@@ -3,7 +3,23 @@
     <h2>Monte sua Pizza</h2>
   </header>
 
-  <div>
+  <!-- Se for false ainda não tem cadastro de dados então é false aparece essa msg -->
+  <ion-card *ngIf="!isCadastrou">
+    <img class="img-pizza-gif" alt="Logo" src="../../../../assets/pizza-animada.gif" />
+    <ion-card-header>
+      <ion-card-title>All for Food</ion-card-title>
+      <ion-card-subtitle>Monte a sua pizza</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Antes de montar sua pizza cadastre seus dados e depois é só curtir.
+    </ion-card-content>
+    <ion-button (click)="goCliente()"><p>Cadastrar</p></ion-button>
+  </ion-card>
+
+
+  <!-- Se for True aparece o Formulario -->
+  <div *ngIf="isCadastrou">
     <form #f="ngForm" (ngSubmit)="concluir(f)">
 
       <div>

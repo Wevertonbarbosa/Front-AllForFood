@@ -5,6 +5,15 @@ import { MenuPage } from './Pages/tab/menu/menu.page';
 export const routes: Routes = [
   {
     path: '',
+    redirectTo: 'page-loja',
+    pathMatch: 'full',
+  },
+  {
+    path: 'page-loja',
+    loadComponent: () => import('./Pages/loja/page-loja/page-loja.page').then( m => m.PageLojaPage)
+  },
+  {   
+    path: '',
     component: MenuPage,
     children: [
       {
@@ -20,10 +29,7 @@ export const routes: Routes = [
         path: 'cliente',
         loadComponent: () => import('./Pages/pagina/cliente/cliente.page').then( m => m.ClientePage)
       },
-      {
-        path: 'page-loja',
-        loadComponent: () => import('./Pages/loja/page-loja/page-loja.page').then( m => m.PageLojaPage)
-      },
+      
       {
         path: 'page-produtos',
         loadComponent: () => import('./Pages/produtos/page-produtos/page-produtos.page').then( m => m.PageProdutosPage)
@@ -33,6 +39,7 @@ export const routes: Routes = [
         loadComponent: () => import('./Pages/pedido/page-pedido/page-pedido.page').then( m => m.PagePedidoPage)
       },
     ],
+    
   },
     
 ];
